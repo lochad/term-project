@@ -5,12 +5,17 @@ using namespace std;
 
 int main() {
 
-  // Do some printing
-  int var;
-  cout << "Hello World, please enter a number " << endl;
-  cin >> var;
+  std::vector<std::array<float, 2>> points = {
+        {2.0, 3.0},
+        {5.0, 4.0},
+        {9.0, 6.0},
+        {4.0, 7.0},
+        {8.0, 1.0},
+        {7.0, 2.0}
+    };
 
-  cout << "your number was : " << var
-       << " and the btree node has address: " << endl;
-  return 0;
+    KDTree tree;
+    tree.buildKDTree(points, 2);
+    std::cout << "KD-Tree built successfully!" << std::endl;
+
 }

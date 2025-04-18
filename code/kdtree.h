@@ -1,6 +1,10 @@
+#ifndef KDTREE_H
+#define KDTREE_H
+
 #include <memory>
 #include <string>
 #include <vector>
+#include <algorithm> 
 
 using namespace std;
 
@@ -21,10 +25,7 @@ public:
   // but not returned with the 'delete' keyword.
   ~KDTree();
 
-  // init_node initializes a new bst_node from the heap using the given
-  // data, and two NULL children, and returns a pointer to it.
-  kd_node* init_node(string label, float coordinates[2]);
-
+  kd_node* buildKDTree(vector<array<float, 2>>& points, int depth);
   // insert places the new_node in a proper location in the tree while obeying
   // the invariant. On return, root points to the root of the tree.
   void insert(kd_node* new_node, kd_node* root);
@@ -39,3 +40,5 @@ private:
   // you can add add more private member variables and member functions here if
   // you need
 };
+
+#endif

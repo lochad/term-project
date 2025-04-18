@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jovyan/term-project/code/kdtree.cpp" "CMakeFiles/run_tests.dir/code/kdtree.cpp.o" "gcc" "CMakeFiles/run_tests.dir/code/kdtree.cpp.o.d"
+  "/home/jovyan/term-project/code/kdtree.cpp" "CMakeFiles/kdtree_lib.dir/code/kdtree.cpp.o" "gcc" "CMakeFiles/kdtree_lib.dir/code/kdtree.cpp.o.d"
   )
 
 # Targets to which this target links.

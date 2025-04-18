@@ -1,60 +1,32 @@
 #include "kdtree.h"
 
-KDTree::KDTree()
-{
+KDTree::~KDTree() {
   root = new kd_node *;
   *root = NULL;
 }
 
-KDTree::~KDTree() {}
+kd_node* buildKDTree(vector<array<float, 2>>& points, int depth){
+  if (points.empty()) {
+        return nullptr;
+    }
+  int axis = depth % 2;
+  sort(points.begin(), points.end(), [axis](const array<float,2>& a, const array<float, 2>& b) {
+    return a[axis] < b[axis];
+  });
+  int median = points.size() / 2;
+  string label = "placeholder";
+  kd_node* root = new kd_node;
+  root->label=label;
+  root->coordinates[0]=points[median][0];
+  root->coordinates[1]=points[median][1];
+  root->left=nullptr;
+  root->right=nullptr;
 
-kd_node *KDTree::init_node(string label, float coordinates[2])
-{
-  kd_node *ret(new kd_node);
-  ret->label = label;
-  ret->coordinates[0] = coordinates[0];
-  ret->coordinates[1] = coordinates[1];
-  ret->left = nullptr;
-  ret->right = nullptr;
-  return ret;
-}
+  vector<array<float, 2>> leftPoints(points.begin(), points.begin() + median);
+  vector<array<float, 2>> rightPoints(points.begin() + median + 1, points.end());
 
-//needs to insert closest to coordinates
-void KDTree::insert(kd_node *new_node, kd_node *root)
-{
-  auto current = *root;
+  root->left = buildKDTree(leftPoints, depth + 1);
+  root->right = buildKDTree(rightPoints, depth + 1);
 
-  if ((current)->data > new_node->data)
-  {
-    if ((current)->left == nullptr)
-    {
-      (current)->left = new_node;
-      return;
-    }
-    else
-    {
-      insert(new_node, current->left);
-    }
-  }
-  else if ((current)->data < new_node->data)
-  {
-    if ((current)->right == nullptr)
-    {
-      (current)->right = new_node;
-      return;
-    }
-    else
-    {
-      insert(new_node, current->right);
-    }
-  }
-  else if ((current)->data == new_node->data)
-  {
-    (current)->right = new_node;
-    return;
-  }
-  else
-  {
-    return;
-  }
+  return root;
 }

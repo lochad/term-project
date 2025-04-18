@@ -1,2 +1,2 @@
-# Empty dependencies file for run_tests.
+# Empty dependencies file for kdtree_lib.
 # This may be replaced when dependencies are built.
