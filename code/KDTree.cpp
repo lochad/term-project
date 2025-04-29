@@ -103,36 +103,6 @@ void KDTree::remove_no_children(array<float, 2> points, kd_node *subt, kd_node *
   }
 }
 
-kd_node *KDTree::find_min(kd_node *subt, int depth, int d)
-{
-  if (subt == nullptr)
-  {
-    return subt;
-  }
-  int lvl = depth % 2;
-
-  if (d == lvl)
-  {
-    if (subt->left == nullptr)
-    {
-      return subt;
-    }
-    return find_min(subt->left, depth + 1, d);
-  }
-  kd_node *right_min = find_min(subt->right, depth + 1, d);
-  kd_node *left_min = find_min(subt->left, depth + 1, d);
-  kd_node *min = subt;
-  if (right_min != nullptr && right_min->coordinates[d] < subt->coordinates[d])
-  {
-    min = right_min;
-  }
-  if (left_min != nullptr && left_min->coordinates[d] < subt->coordinates[d])
-  {
-    min = left_min;
-  }
-  return min;
-}
-
 void KDTree::remove_one_child(array<float, 2> points, kd_node *subt, kd_node *parent, int depth)
 {
   kd_node *current = subt;
@@ -209,7 +179,7 @@ void KDTree::remove_two_children(array<float, 2> points, kd_node *subt, int dept
       subt->coordinates = successor->coordinates;
       if (successorP->left == successor)
       {
-        successorP->left = successor->right;
+        successorP->left = successor->left;
       }
       else
       {
