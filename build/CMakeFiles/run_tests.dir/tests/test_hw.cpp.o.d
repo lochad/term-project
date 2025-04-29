@@ -1,7 +1,6 @@
 CMakeFiles/run_tests.dir/tests/test_hw.cpp.o: \
- /home/jovyan/hw-03-binary-search-tree-lochad/tests/test_hw.cpp \
- /usr/include/stdc-predef.h \
- /home/jovyan/hw-03-binary-search-tree-lochad/tests/../code/KDTree.h \
+ /home/jovyan/term-project/tests/test_hw.cpp /usr/include/stdc-predef.h \
+ /home/jovyan/term-project/tests/../code/KDTree.h \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

@@ -27,6 +27,7 @@ int main(){
     cin >> y;
     array<float, 2> coords = {x, y};
     kd_node* result = tree.knn(tree.get_root(), coords, 0);
-    cout << "The closest ghost town to you is "<< result->label<<"." << endl;
+    kd_node* secondB = tree.secondBest(tree.get_root(), coords, 0);
+    cout << "The closest ghost town to you is "<< result->label<<". The second best is "<<secondB->label<<". Happy haunting!" << endl;
     return 0;
 }

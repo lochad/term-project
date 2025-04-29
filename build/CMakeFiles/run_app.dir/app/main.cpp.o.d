@@ -1,6 +1,6 @@
 CMakeFiles/run_app.dir/app/main.cpp.o: \
- /home/jovyan/hw-03-binary-search-tree-lochad/app/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+ /home/jovyan/term-project/app/main.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -144,7 +144,7 @@ CMakeFiles/run_app.dir/app/main.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/jovyan/hw-03-binary-search-tree-lochad/app/../code/KDTree.h \
+ /home/jovyan/term-project/app/../code/KDTree.h \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \

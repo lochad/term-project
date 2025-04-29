@@ -1,5 +1,5 @@
-/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles/run_tests.dir
-/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles/run_app.dir
-/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles/test.dir
-/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles/edit_cache.dir
-/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles/rebuild_cache.dir
+/home/jovyan/term-project/build/CMakeFiles/run_tests.dir
+/home/jovyan/term-project/build/CMakeFiles/run_app.dir
+/home/jovyan/term-project/build/CMakeFiles/test.dir
+/home/jovyan/term-project/build/CMakeFiles/edit_cache.dir
+/home/jovyan/term-project/build/CMakeFiles/rebuild_cache.dir

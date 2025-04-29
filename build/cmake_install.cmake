@@ -1,4 +1,4 @@
-# Install script for directory: /home/jovyan/hw-03-binary-search-tree-lochad
+# Install script for directory: /home/jovyan/term-project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jovyan/hw-03-binary-search-tree-lochad/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jovyan/term-project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

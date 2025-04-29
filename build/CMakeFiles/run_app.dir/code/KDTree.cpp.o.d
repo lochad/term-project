@@ -1,8 +1,7 @@
 CMakeFiles/run_app.dir/code/KDTree.cpp.o: \
- /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp \
- /usr/include/stdc-predef.h \
- /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.h \
- /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
+ /home/jovyan/term-project/code/KDTree.cpp /usr/include/stdc-predef.h \
+ /home/jovyan/term-project/code/KDTree.h /usr/include/c++/11/memory \
+ /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

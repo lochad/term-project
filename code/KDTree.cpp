@@ -206,20 +206,27 @@ float KDTree::distanceb(float starting0, float starting1, array<float, 2> target
   return distance;
 }
 
-kd_node *KDTree::search(kd_node *subt, array<float, 2> point, int depth, float &bestDistance, kd_node *&best)
+vector<kd_node*> KDTree::search(kd_node *subt, array<float, 2> point, int depth, float &bestDistance, kd_node *&best, kd_node *&secondBestN, float &secondBestD)
 {
   if (subt == nullptr)
   {
-    return best;
+    return {best, secondBestN};
   }
   int lvl = depth % 2;
   float between = distanceb(subt->coordinates[0], subt->coordinates[1], point);
-
-  if (best == nullptr || bestDistance > between)
-  {
+  
+if (best == nullptr || bestDistance > between)
+{
+    if (best != nullptr) {
+        secondBestD = bestDistance;
+        secondBestN = best;
+    }
     bestDistance = between;
     best = subt;
-  }
+} else if ((secondBestN == nullptr || between < secondBestD) && between > bestDistance) {
+    secondBestD = between;
+    secondBestN = subt;
+}
   kd_node *good;
   kd_node *bad;
   if (point[lvl] < subt->coordinates[lvl])
@@ -232,21 +239,32 @@ kd_node *KDTree::search(kd_node *subt, array<float, 2> point, int depth, float &
     good = subt->right;
     bad = subt->left;
   }
-  search(good, point, depth + 1, bestDistance, best);
+  search(good, point, depth + 1, bestDistance, best, secondBestN, secondBestD);
 
   float distanceToSplittingPlane = abs(point[lvl] - subt->coordinates[lvl]);
   if (distanceToSplittingPlane < bestDistance)
   {
-    search(bad, point, depth + 1, bestDistance, best);
+    search(bad, point, depth + 1, bestDistance, best, secondBestN, secondBestD);
   }
-  return best;
+  return {best, secondBestN};
 }
 
 kd_node *KDTree::knn(kd_node *subt, array<float, 2> point, int depth)
 {
   float bestDistance = std::numeric_limits<float>::max();
+  float secondBestD = std::numeric_limits<float>::max();
   kd_node *best = nullptr;
-  return (search(subt, point, depth, bestDistance, best));
+  kd_node *secondBestN = nullptr;
+  return (search(subt, point, depth, bestDistance, best, secondBestN, secondBestD))[0];
+}
+
+kd_node *KDTree::secondBest(kd_node *subt, array<float, 2> point, int depth)
+{
+  float bestDistance = std::numeric_limits<float>::max();
+  float secondBestD = std::numeric_limits<float>::max();
+  kd_node *best = nullptr;
+  kd_node *secondBestN = nullptr;
+  return (search(subt, point, depth, bestDistance, best, secondBestN, secondBestD))[1];
 }
 
 bool KDTree::contains(kd_node *subt, array<float, 2> points)

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jovyan/hw-03-binary-search-tree-lochad
+CMAKE_SOURCE_DIR = /home/jovyan/term-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jovyan/hw-03-binary-search-tree-lochad/build
+CMAKE_BINARY_DIR = /home/jovyan/term-project/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/run_tests.dir/depend.make
@@ -72,30 +72,30 @@ include CMakeFiles/run_tests.dir/flags.make
 CMakeFiles/run_tests.dir/tests/test_hw.cpp.o: CMakeFiles/run_tests.dir/flags.make
 CMakeFiles/run_tests.dir/tests/test_hw.cpp.o: ../tests/test_hw.cpp
 CMakeFiles/run_tests.dir/tests/test_hw.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run_tests.dir/tests/test_hw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/tests/test_hw.cpp.o -MF CMakeFiles/run_tests.dir/tests/test_hw.cpp.o.d -o CMakeFiles/run_tests.dir/tests/test_hw.cpp.o -c /home/jovyan/hw-03-binary-search-tree-lochad/tests/test_hw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jovyan/term-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run_tests.dir/tests/test_hw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/tests/test_hw.cpp.o -MF CMakeFiles/run_tests.dir/tests/test_hw.cpp.o.d -o CMakeFiles/run_tests.dir/tests/test_hw.cpp.o -c /home/jovyan/term-project/tests/test_hw.cpp
 
 CMakeFiles/run_tests.dir/tests/test_hw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_tests.dir/tests/test_hw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jovyan/hw-03-binary-search-tree-lochad/tests/test_hw.cpp > CMakeFiles/run_tests.dir/tests/test_hw.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jovyan/term-project/tests/test_hw.cpp > CMakeFiles/run_tests.dir/tests/test_hw.cpp.i
 
 CMakeFiles/run_tests.dir/tests/test_hw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/tests/test_hw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jovyan/hw-03-binary-search-tree-lochad/tests/test_hw.cpp -o CMakeFiles/run_tests.dir/tests/test_hw.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jovyan/term-project/tests/test_hw.cpp -o CMakeFiles/run_tests.dir/tests/test_hw.cpp.s
 
 CMakeFiles/run_tests.dir/code/KDTree.cpp.o: CMakeFiles/run_tests.dir/flags.make
 CMakeFiles/run_tests.dir/code/KDTree.cpp.o: ../code/KDTree.cpp
 CMakeFiles/run_tests.dir/code/KDTree.cpp.o: CMakeFiles/run_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/run_tests.dir/code/KDTree.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/code/KDTree.cpp.o -MF CMakeFiles/run_tests.dir/code/KDTree.cpp.o.d -o CMakeFiles/run_tests.dir/code/KDTree.cpp.o -c /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jovyan/term-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/run_tests.dir/code/KDTree.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_tests.dir/code/KDTree.cpp.o -MF CMakeFiles/run_tests.dir/code/KDTree.cpp.o.d -o CMakeFiles/run_tests.dir/code/KDTree.cpp.o -c /home/jovyan/term-project/code/KDTree.cpp
 
 CMakeFiles/run_tests.dir/code/KDTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_tests.dir/code/KDTree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp > CMakeFiles/run_tests.dir/code/KDTree.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jovyan/term-project/code/KDTree.cpp > CMakeFiles/run_tests.dir/code/KDTree.cpp.i
 
 CMakeFiles/run_tests.dir/code/KDTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/code/KDTree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp -o CMakeFiles/run_tests.dir/code/KDTree.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jovyan/term-project/code/KDTree.cpp -o CMakeFiles/run_tests.dir/code/KDTree.cpp.s
 
 # Object files for target run_tests
 run_tests_OBJECTS = \
@@ -110,7 +110,7 @@ run_tests: CMakeFiles/run_tests.dir/code/KDTree.cpp.o
 run_tests: CMakeFiles/run_tests.dir/build.make
 run_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
 run_tests: CMakeFiles/run_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jovyan/term-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable run_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run_tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +122,6 @@ CMakeFiles/run_tests.dir/clean:
 .PHONY : CMakeFiles/run_tests.dir/clean
 
 CMakeFiles/run_tests.dir/depend:
-	cd /home/jovyan/hw-03-binary-search-tree-lochad/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jovyan/hw-03-binary-search-tree-lochad /home/jovyan/hw-03-binary-search-tree-lochad /home/jovyan/hw-03-binary-search-tree-lochad/build /home/jovyan/hw-03-binary-search-tree-lochad/build /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jovyan/term-project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jovyan/term-project /home/jovyan/term-project /home/jovyan/term-project/build /home/jovyan/term-project/build /home/jovyan/term-project/build/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run_tests.dir/depend
 

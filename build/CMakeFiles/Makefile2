@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jovyan/hw-03-binary-search-tree-lochad
+CMAKE_SOURCE_DIR = /home/jovyan/term-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jovyan/hw-03-binary-search-tree-lochad/build
+CMAKE_BINARY_DIR = /home/jovyan/term-project/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -83,14 +83,14 @@ clean: CMakeFiles/run_app.dir/clean
 CMakeFiles/run_tests.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=4,5,6 "Built target run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jovyan/term-project/build/CMakeFiles --progress-num=4,5,6 "Built target run_tests"
 .PHONY : CMakeFiles/run_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/term-project/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/term-project/build/CMakeFiles 0
 .PHONY : CMakeFiles/run_tests.dir/rule
 
 # Convenience name for target.
@@ -109,14 +109,14 @@ CMakeFiles/run_tests.dir/clean:
 CMakeFiles/run_app.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_app.dir/build.make CMakeFiles/run_app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_app.dir/build.make CMakeFiles/run_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=1,2,3 "Built target run_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jovyan/term-project/build/CMakeFiles --progress-num=1,2,3 "Built target run_app"
 .PHONY : CMakeFiles/run_app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run_app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/term-project/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_app.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/term-project/build/CMakeFiles 0
 .PHONY : CMakeFiles/run_app.dir/rule
 
 # Convenience name for target.
