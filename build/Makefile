@@ -57,13 +57,23 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jovyan/term-project
+CMAKE_SOURCE_DIR = /home/jovyan/hw-03-binary-search-tree-lochad
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jovyan/term-project/build
+CMAKE_BINARY_DIR = /home/jovyan/hw-03-binary-search-tree-lochad/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -87,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/term-project/build/CMakeFiles /home/jovyan/term-project/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles /home/jovyan/hw-03-binary-search-tree-lochad/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/term-project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,17 +127,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named kdtree_lib
+# Target rules for targets named run_tests
 
 # Build rule for target.
-kdtree_lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kdtree_lib
-.PHONY : kdtree_lib
+run_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_tests
+.PHONY : run_tests
 
 # fast build rule for target.
-kdtree_lib/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kdtree_lib.dir/build.make CMakeFiles/kdtree_lib.dir/build
-.PHONY : kdtree_lib/fast
+run_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
+.PHONY : run_tests/fast
 
 #=============================================================================
 # Target rules for targets named run_app
@@ -166,29 +176,56 @@ app/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_app.dir/build.make CMakeFiles/run_app.dir/app/main.cpp.s
 .PHONY : app/main.cpp.s
 
-code/kdtree.o: code/kdtree.cpp.o
-.PHONY : code/kdtree.o
+code/KDTree.o: code/KDTree.cpp.o
+.PHONY : code/KDTree.o
 
 # target to build an object file
-code/kdtree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kdtree_lib.dir/build.make CMakeFiles/kdtree_lib.dir/code/kdtree.cpp.o
-.PHONY : code/kdtree.cpp.o
+code/KDTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/code/KDTree.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_app.dir/build.make CMakeFiles/run_app.dir/code/KDTree.cpp.o
+.PHONY : code/KDTree.cpp.o
 
-code/kdtree.i: code/kdtree.cpp.i
-.PHONY : code/kdtree.i
+code/KDTree.i: code/KDTree.cpp.i
+.PHONY : code/KDTree.i
 
 # target to preprocess a source file
-code/kdtree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kdtree_lib.dir/build.make CMakeFiles/kdtree_lib.dir/code/kdtree.cpp.i
-.PHONY : code/kdtree.cpp.i
+code/KDTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/code/KDTree.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_app.dir/build.make CMakeFiles/run_app.dir/code/KDTree.cpp.i
+.PHONY : code/KDTree.cpp.i
 
-code/kdtree.s: code/kdtree.cpp.s
-.PHONY : code/kdtree.s
+code/KDTree.s: code/KDTree.cpp.s
+.PHONY : code/KDTree.s
 
 # target to generate assembly for a file
-code/kdtree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kdtree_lib.dir/build.make CMakeFiles/kdtree_lib.dir/code/kdtree.cpp.s
-.PHONY : code/kdtree.cpp.s
+code/KDTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/code/KDTree.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_app.dir/build.make CMakeFiles/run_app.dir/code/KDTree.cpp.s
+.PHONY : code/KDTree.cpp.s
+
+tests/test_hw.o: tests/test_hw.cpp.o
+.PHONY : tests/test_hw.o
+
+# target to build an object file
+tests/test_hw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_hw.cpp.o
+.PHONY : tests/test_hw.cpp.o
+
+tests/test_hw.i: tests/test_hw.cpp.i
+.PHONY : tests/test_hw.i
+
+# target to preprocess a source file
+tests/test_hw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_hw.cpp.i
+.PHONY : tests/test_hw.cpp.i
+
+tests/test_hw.s: tests/test_hw.cpp.s
+.PHONY : tests/test_hw.s
+
+# target to generate assembly for a file
+tests/test_hw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/test_hw.cpp.s
+.PHONY : tests/test_hw.cpp.s
 
 # Help Target
 help:
@@ -198,14 +235,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... kdtree_lib"
+	@echo "... test"
 	@echo "... run_app"
+	@echo "... run_tests"
 	@echo "... app/main.o"
 	@echo "... app/main.i"
 	@echo "... app/main.s"
-	@echo "... code/kdtree.o"
-	@echo "... code/kdtree.i"
-	@echo "... code/kdtree.s"
+	@echo "... code/KDTree.o"
+	@echo "... code/KDTree.i"
+	@echo "... code/KDTree.s"
+	@echo "... tests/test_hw.o"
+	@echo "... tests/test_hw.i"
+	@echo "... tests/test_hw.s"
 .PHONY : help
 
 

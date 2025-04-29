@@ -1,21 +1,32 @@
-#include "../code/kdtree.h"
 #include <iostream>
+#include "../code/KDTree.h"
 
 using namespace std;
 
-int main() {
-
-  std::vector<std::array<float, 2>> points = {
-        {2.0, 3.0},
-        {5.0, 4.0},
-        {9.0, 6.0},
-        {4.0, 7.0},
-        {8.0, 1.0},
-        {7.0, 2.0}
+int main(){
+    vector<array<float, 2>> ghost_towns = {
+        {38.7036419f,-106.3452481f},
+        {38.9847154,-106.4408599},
+        {39.1068016f,-106.6035702f},
+        {37.932293f,-107.570046f},
+        {39.7968022f,-105.5257985f},
+        {38.959158f,-106.989767f}
     };
-
+    vector<string> labels = {"St. Elmo", "Winfield", "Independence", "Animas Forks", "Nevadaville", "Gothic"};
     KDTree tree;
-    tree.buildKDTree(points, 2);
-    std::cout << "KD-Tree built successfully!" << std::endl;
-
+    for (int i=0; i<ghost_towns.size(); i++){
+         kd_node* new_node = tree.init_node(ghost_towns[i], labels[i]);
+         tree.insert(new_node, 0);
+    }
+    float x;
+    float y;
+    cout << "Colorado is famous for its many popular ghost towns. https://www.uncovercolorado.com/ has compiled the best ghost towns in the state. Type in a coordinate to find the nearest ghost town to you. " << endl;
+    cout << "Starting with x: " << endl;
+    cin >> x;
+    cout << "Now y: " << endl;
+    cin >> y;
+    array<float, 2> coords = {x, y};
+    kd_node* result = tree.knn(tree.get_root(), coords, 0);
+    cout << "The closest ghost town to you is "<< result->label<<"." << endl;
+    return 0;
 }

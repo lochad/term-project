@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jovyan/term-project/app/main.cpp" "CMakeFiles/run_app.dir/app/main.cpp.o" "gcc" "CMakeFiles/run_app.dir/app/main.cpp.o.d"
+  "/home/jovyan/hw-03-binary-search-tree-lochad/app/main.cpp" "CMakeFiles/run_app.dir/app/main.cpp.o" "gcc" "CMakeFiles/run_app.dir/app/main.cpp.o.d"
+  "/home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp" "CMakeFiles/run_app.dir/code/KDTree.cpp.o" "gcc" "CMakeFiles/run_app.dir/code/KDTree.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/jovyan/term-project/build/CMakeFiles/kdtree_lib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

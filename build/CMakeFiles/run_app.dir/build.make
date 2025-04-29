@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jovyan/term-project
+CMAKE_SOURCE_DIR = /home/jovyan/hw-03-binary-search-tree-lochad
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jovyan/term-project/build
+CMAKE_BINARY_DIR = /home/jovyan/hw-03-binary-search-tree-lochad/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/run_app.dir/depend.make
@@ -72,29 +72,44 @@ include CMakeFiles/run_app.dir/flags.make
 CMakeFiles/run_app.dir/app/main.cpp.o: CMakeFiles/run_app.dir/flags.make
 CMakeFiles/run_app.dir/app/main.cpp.o: ../app/main.cpp
 CMakeFiles/run_app.dir/app/main.cpp.o: CMakeFiles/run_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jovyan/term-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run_app.dir/app/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_app.dir/app/main.cpp.o -MF CMakeFiles/run_app.dir/app/main.cpp.o.d -o CMakeFiles/run_app.dir/app/main.cpp.o -c /home/jovyan/term-project/app/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run_app.dir/app/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_app.dir/app/main.cpp.o -MF CMakeFiles/run_app.dir/app/main.cpp.o.d -o CMakeFiles/run_app.dir/app/main.cpp.o -c /home/jovyan/hw-03-binary-search-tree-lochad/app/main.cpp
 
 CMakeFiles/run_app.dir/app/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_app.dir/app/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jovyan/term-project/app/main.cpp > CMakeFiles/run_app.dir/app/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jovyan/hw-03-binary-search-tree-lochad/app/main.cpp > CMakeFiles/run_app.dir/app/main.cpp.i
 
 CMakeFiles/run_app.dir/app/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_app.dir/app/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jovyan/term-project/app/main.cpp -o CMakeFiles/run_app.dir/app/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jovyan/hw-03-binary-search-tree-lochad/app/main.cpp -o CMakeFiles/run_app.dir/app/main.cpp.s
+
+CMakeFiles/run_app.dir/code/KDTree.cpp.o: CMakeFiles/run_app.dir/flags.make
+CMakeFiles/run_app.dir/code/KDTree.cpp.o: ../code/KDTree.cpp
+CMakeFiles/run_app.dir/code/KDTree.cpp.o: CMakeFiles/run_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/run_app.dir/code/KDTree.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/run_app.dir/code/KDTree.cpp.o -MF CMakeFiles/run_app.dir/code/KDTree.cpp.o.d -o CMakeFiles/run_app.dir/code/KDTree.cpp.o -c /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp
+
+CMakeFiles/run_app.dir/code/KDTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_app.dir/code/KDTree.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp > CMakeFiles/run_app.dir/code/KDTree.cpp.i
+
+CMakeFiles/run_app.dir/code/KDTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_app.dir/code/KDTree.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jovyan/hw-03-binary-search-tree-lochad/code/KDTree.cpp -o CMakeFiles/run_app.dir/code/KDTree.cpp.s
 
 # Object files for target run_app
 run_app_OBJECTS = \
-"CMakeFiles/run_app.dir/app/main.cpp.o"
+"CMakeFiles/run_app.dir/app/main.cpp.o" \
+"CMakeFiles/run_app.dir/code/KDTree.cpp.o"
 
 # External object files for target run_app
 run_app_EXTERNAL_OBJECTS =
 
 run_app: CMakeFiles/run_app.dir/app/main.cpp.o
+run_app: CMakeFiles/run_app.dir/code/KDTree.cpp.o
 run_app: CMakeFiles/run_app.dir/build.make
-run_app: libkdtree_lib.a
 run_app: CMakeFiles/run_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jovyan/term-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable run_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable run_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -106,6 +121,6 @@ CMakeFiles/run_app.dir/clean:
 .PHONY : CMakeFiles/run_app.dir/clean
 
 CMakeFiles/run_app.dir/depend:
-	cd /home/jovyan/term-project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jovyan/term-project /home/jovyan/term-project /home/jovyan/term-project/build /home/jovyan/term-project/build /home/jovyan/term-project/build/CMakeFiles/run_app.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jovyan/hw-03-binary-search-tree-lochad/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jovyan/hw-03-binary-search-tree-lochad /home/jovyan/hw-03-binary-search-tree-lochad /home/jovyan/hw-03-binary-search-tree-lochad/build /home/jovyan/hw-03-binary-search-tree-lochad/build /home/jovyan/hw-03-binary-search-tree-lochad/build/CMakeFiles/run_app.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run_app.dir/depend
 
