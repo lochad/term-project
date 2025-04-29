@@ -10,6 +10,10 @@ KD trees are very similar to BSTs, except they contain dimensions. The dimension
 
 I thought this process was pretty confusing until I drew it out myself. This excellent [video](https://www.youtube.com/watch?v=BK5x7IUTIyU) helps demonstrate how KD trees are built.
 
+## Splitting plane
+I struggled to understand the beenfits of a splitting plane. The splitting plane helps minimize 
+!(https://www.baeldung.com/wp-content/uploads/sites/4/2023/03/kdtree.png)
+
 ### KD invariant
 The invariants are generally similar to the BSTs except for the splitting plane. All the invariants are based on multiple dimensions, whereas BSTs are only based on one.
 
@@ -39,4 +43,17 @@ Lastly, the search function gets used in the knn function. The knn function init
 Get node was is simple and similar to BSTs except that the recursion is done on the splitting plane. So the first iteration is done on the x axis, then is swtiches to y until the point is found.
 
 ### Contains
+Contains returns true if get_node returns a node and false if it doesn't.
+
 ### Size
+Size counts up the points by adding 1 for each recursion and then returns that number.
+
+## Running the program
+1. delete the build folder.
+2. create a new build folder by running mkdir build
+3. navigate to the build folder by running cd build
+4. now run cmake ..
+5. run make && ./run_app to run the demo.
+6. add your x coordinate and press enter
+7. add your y coordinate and press enter
+8. the program will return the closest ghost town to you.
