@@ -56,6 +56,8 @@ Contains returns true if get_node returns a node and false if it doesn't.
 Size counts up the points by adding 1 for each recursion and then returns that number.
 
 # Running the program
+I am paranoid it won't run because I've never made a project like this before, so just in case it doesn't, I made this [walkthrough video](https://youtu.be/MyRox_W9P7U)
+
 1. delete the build folder.
 2. create a new build folder by running mkdir build
 3. navigate to the build folder by running cd build
