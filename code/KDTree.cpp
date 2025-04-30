@@ -17,13 +17,14 @@ KDTree::~KDTree() {}
 kd_node *KDTree::init_node(array<float, 2> points, string label)
 {
   kd_node *ret(new kd_node);
-  ret->coordinates[0] = points[0];
-  ret->coordinates[1] = points[1];
+  ret->coordinates = points;
   ret->left = nullptr;
   ret->right = nullptr;
   ret->label = label;
   return ret;
 }
+
+// deoth should normally be 0
 void KDTree::insert(kd_node *new_node, int depth)
 {
   if (*root == nullptr)
@@ -36,6 +37,7 @@ void KDTree::insert(kd_node *new_node, int depth)
     insert_helper(new_node, *root, depth);
   }
 }
+
 void KDTree::insert_helper(kd_node *new_node, kd_node *current, int depth)
 {
   int lvl = depth % 2;
@@ -59,6 +61,7 @@ void KDTree::insert_helper(kd_node *new_node, kd_node *current, int depth)
   }
 }
 
+// depth should normally be 0
 void KDTree::remove(array<float, 2> points, int depth)
 {
   if (root == nullptr)
@@ -70,6 +73,7 @@ void KDTree::remove(array<float, 2> points, int depth)
   remove_two_children(points, *root, depth);
 }
 
+// subt is the removal node
 void KDTree::remove_no_children(array<float, 2> points, kd_node *subt, kd_node *parent, int depth)
 {
   int lvl = depth % 2;
@@ -77,6 +81,7 @@ void KDTree::remove_no_children(array<float, 2> points, kd_node *subt, kd_node *
   {
     return;
   }
+  // if we found the point and it has no children
   if ((subt->coordinates[0] == points[0]) && (subt->coordinates[1] == points[1]))
   {
     if (((subt)->left == nullptr) && ((subt)->right == nullptr))
@@ -93,6 +98,7 @@ void KDTree::remove_no_children(array<float, 2> points, kd_node *subt, kd_node *
       return;
     }
   }
+  // recurse until end of tree
   else if (subt->coordinates[lvl] > points[lvl])
   {
     remove_no_children(points, subt->left, subt, depth + 1);
@@ -111,8 +117,10 @@ void KDTree::remove_one_child(array<float, 2> points, kd_node *subt, kd_node *pa
     return;
   }
   int lvl = depth % 2;
+  // if point is found and one of the chilren isn't null
   if ((current->coordinates[0] == points[0]) && (current->coordinates[1] == points[1]))
   {
+    // if the current is left then update the parent's left, otherwise update parent's right
     if (((current)->left != nullptr) && ((current)->right == nullptr))
     {
       if (parent->left == current)
@@ -128,6 +136,7 @@ void KDTree::remove_one_child(array<float, 2> points, kd_node *subt, kd_node *pa
         return;
       }
     }
+    // if the current is left then update the parent's left, otherwise update parent's right
     else if (((current)->right != nullptr) && ((current)->left == nullptr))
     {
       if (parent->left == current)
@@ -144,6 +153,7 @@ void KDTree::remove_one_child(array<float, 2> points, kd_node *subt, kd_node *pa
       }
     }
   }
+  // recurse until null
   else if (current->coordinates[lvl] > points[lvl])
   {
     remove_one_child(points, current->left, current, depth + 1);
@@ -165,12 +175,14 @@ void KDTree::remove_two_children(array<float, 2> points, kd_node *subt, int dept
   {
     return;
   }
+  // if node is found and has two children
   if ((subt->coordinates[0] == points[0]) && (subt->coordinates[1] == points[1]))
   {
     if (((subt)->left != nullptr) && ((subt)->right != nullptr))
     {
       kd_node *successor = subt->right;
       kd_node *successorP = subt;
+      // find last node in tree by searching the tree until successor coordinates are found
       if (successor->left != nullptr)
       {
         successor = successor->left;
@@ -189,6 +201,7 @@ void KDTree::remove_two_children(array<float, 2> points, kd_node *subt, int dept
       return;
     }
   }
+  // recurse until tree is null
   else if (subt->coordinates[lvl] > points[lvl])
   {
     remove_two_children(points, subt->left, depth + 1);
@@ -199,6 +212,7 @@ void KDTree::remove_two_children(array<float, 2> points, kd_node *subt, int dept
   }
 }
 
+// coordinates of starting point and target point
 float KDTree::distanceb(float starting0, float starting1, array<float, 2> target)
 {
   float euclidean = (pow((target[0] - starting0), 2)) + (pow((target[1] - starting1), 2));
@@ -213,16 +227,21 @@ vector<kd_node*> KDTree::search(kd_node *subt, array<float, 2> point, int depth,
     return {best, secondBestN};
   }
   int lvl = depth % 2;
+  // find euclidean's distance between current node and locating point
   float between = distanceb(subt->coordinates[0], subt->coordinates[1], point);
   
+  // find new best if null or best distance is larger than current distance
 if (best == nullptr || bestDistance > between)
 {
     if (best != nullptr) {
+        // updating second best with current best
         secondBestD = bestDistance;
         secondBestN = best;
     }
     bestDistance = between;
     best = subt;
+  // find second best if second best is null or the new distance is less than the second distance AND the current distance is greater than the best distance
+  // this helps account for when the current is worse than the current best but better than the second best
 } else if ((secondBestN == nullptr || between < secondBestD) && between > bestDistance) {
     secondBestD = between;
     secondBestN = subt;
@@ -239,8 +258,10 @@ if (best == nullptr || bestDistance > between)
     good = subt->right;
     bad = subt->left;
   }
+
   search(good, point, depth + 1, bestDistance, best, secondBestN, secondBestD);
 
+  // figure out if there could be better points on the other side
   float distanceToSplittingPlane = abs(point[lvl] - subt->coordinates[lvl]);
   if (distanceToSplittingPlane < bestDistance)
   {
@@ -248,9 +269,10 @@ if (best == nullptr || bestDistance > between)
   }
   return {best, secondBestN};
 }
-
+ // subt should be root or starting node and depth should be 0
 kd_node *KDTree::knn(kd_node *subt, array<float, 2> point, int depth)
 {
+  // find very large distances so updated distances must be smaller
   float bestDistance = std::numeric_limits<float>::max();
   float secondBestD = std::numeric_limits<float>::max();
   kd_node *best = nullptr;
@@ -258,8 +280,10 @@ kd_node *KDTree::knn(kd_node *subt, array<float, 2> point, int depth)
   return (search(subt, point, depth, bestDistance, best, secondBestN, secondBestD))[0];
 }
 
+// subt should be root or starting node and depth should be 0
 kd_node *KDTree::secondBest(kd_node *subt, array<float, 2> point, int depth)
 {
+  // find very large distances so updated distances must be smaller
   float bestDistance = std::numeric_limits<float>::max();
   float secondBestD = std::numeric_limits<float>::max();
   kd_node *best = nullptr;

@@ -2,18 +2,18 @@
 
 ## Overview
 I wanted to implement a KD tree that could be used for 2 dimensional searches.
-In this project, a list and coordinates of Colorado ghost towns are put into a KD tree. The KD tree is used to search for the nearest neighbor and returns the closest ghost town coordinates to a given point.
+In this project, a list and coordinates of Colorado ghost towns are put into a KD tree. The KD tree is used to search for the nearest neighbor and returns the closest ghost town coordinates to a given point. It also can return the list of ghost towns and thei coordinates.
 
 ## KD Tree Intro
-KD trees are very similar to BSTs, except they contain dimensions. The dimensions are used as a "splitting plane", so instead of easy searches that BSTs use where they just follow which point is lower or higher, KD trees must compare the point on that plane. For instance, if we are adding a point to the tree, the point gets compared on the x plane first (using the modulo number of dimensions % current depth) and goes left if it is smaller and right if it is bigger. The same process is done but compared on the y plane, and this continues switching until the end of the tree is reached or the point is placed. I thought this process was pretty confusing until I drew it out myself. This excellent [video](https://www.youtube.com/watch?v=BK5x7IUTIyU) helps demonstrate how KD trees are built.
+KD trees are very similar to BSTs, except they contain dimensions. The dimensions are used as a "splitting plane", this will be discussed more in the next section.
 
-KD trees have a lot of cool applications, like analyzing point cloud data, finding clusters, and finding similar songs on Spotify. I assumed this would be a similar data structure to what Google Maps uses, but they use Dijkstra's algorithm which makes sense since they need to analyze networks.
+KD trees have a lot of cool applications like analyzing point cloud data, finding clusters, and finding similar songs on Spotify. I assumed this would be a similar data structure to what Google Maps uses, but they use Dijkstra's algorithm which makes sense since they need to analyze networks.
 
 ### Splitting plane
-I struggled to understand the beenfits of a splitting plane. The splitting plane helps minimize the amount of searching we are doing by partioning the space and helps to balance the tree. Since BSTs only have one dimension, they are only being searched once. Splitting on the current plane allows the KD tree to focus on one point at a time, like if it was a BST. If the tree focued on all the dimensions at once, it would take a lot longer and be less efficient. 
+I struggled to understand the beenfits of a splitting plane. The splitting plane helps minimize the amount of searching we are doing by partioning the space and helps to balance the tree. Since BSTs only have one dimension, there is only one data value to look at. Splitting on the current plane allows the KD tree to focus on one point at a time, like if it was a BST. If the tree did not split the plane, there would be more space to explore which would take longer and be less efficient, and it can't only focus on one dimension because the whole space wouldn't be explored. For instance, if we are adding a point to the tree, the point gets compared on the x plane first (using the modulo number of dimensions % current depth) and goes left if it is smaller and right if it is bigger. The same process is done but compared on the y plane, and this continues switching until the end of the tree is reached or the point is placed. I thought this process was pretty confusing until I drew it out myself. This excellent [video](https://www.youtube.com/watch?v=BK5x7IUTIyU) helps demonstrate how KD trees are built.
 
 ### KD invariant
-The invariants are similar to the BSTs except for the splitting plane. All the invariants are based on multiple dimensions, whereas BSTs are only based on one.
+The invariants are similar to the BSTs except for the splitting plane. All the invariants are based on multiple dimensions, whereas BSTs are only based on one. The tree has a left and right node, is balanced, and each level of node represents a hyperplane.
 
 # KD Node
 The node structure has a:
@@ -23,7 +23,7 @@ The node structure has a:
 * `kd_node *right`
 
 # KD Tree class
-The only necessary functions to my program are initiate node, insert, and search. I thought that since this was so similar to BSTs, it wouldn't be too hard (and would be good practice) to implement the rest for KD trees.
+I ended up using more functions than I thought. I did not end up using remove, which is a shame because that took me so long. I used insert to create the tree, init_node to create nodes from the points, knn to find the nearest point (second best for the second best point), get_node to return all the points in the tree, and get_root to get the root of the tree.
 
 ## `init_node`
 Coordinates can be inserted into this function to return a new node.
@@ -47,7 +47,7 @@ I used `secondBest` to get the second best node so I could display multiple opti
 Lastly, the `search` function gets used in the `knn` function. `knn` initializes the best node to null and the best distance to a max large distance so anything we have will be smaller. Then `search` is called and the closest node is returned.
 
 ## `get_node`
-Get node was is simple and similar to BSTs except that the recursion is done on the splitting plane. So the first iteration is done on the x axis, then is swtiches to y until the point is found.
+Get node was is simple and similar to BSTs except that the recursion is done on the splitting plane. So the first iteration is done on the x axis, then is swtiches to y until the point is found. This one is not necessary for the program since I couldn't just printed the labels vector and ghost towns vector, but I wanted to use it.
 
 ## `contains`
 Contains returns true if get_node returns a node and false if it doesn't.
@@ -61,9 +61,13 @@ Size counts up the points by adding 1 for each recursion and then returns that n
 3. navigate to the build folder by running cd build
 4. now run cmake ..
 5. run make && ./run_app to run the demo.
-6. add your x coordinate and press enter
-7. add your y coordinate and press enter
-8. the program will return the closest ghost town to you.
+6. choose which option you would like by typing 1 or 2
+7. if you chose one:
+    1. the program will return all the ghost towns in the tree
+8. if you chose two:
+    1. add your x coordinate and press enter
+    2. add your y coordinate and press enter
+    3. the program will return the closest ghost town to you.
 
 # Challenges and stretch goals
 I have never made a c++ project before, so that took a lot longer than I wanted it to. I did learn lots of valuable lessons like what cmake files actually are and what they look at. Having previous homeworks was extremely useful for this. I kept a lot of it the same as the homework, but getting it to work took a while because I had to dissect where the files were being referenced in the cmake files.
