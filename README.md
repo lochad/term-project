@@ -66,7 +66,7 @@ Size counts up the points by adding 1 for each recursion and then returns that n
 8. the program will return the closest ghost town to you.
 
 # Challenges and stretch goals
-I have never made a c++ project before, so that took a lot longer than I wanted it to. I did learn lots of valuable lessons like what cmake files actually are and what they look at. Having previous homeworks was extremely useful for this.
+I have never made a c++ project before, so that took a lot longer than I wanted it to. I did learn lots of valuable lessons like what cmake files actually are and what they look at. Having previous homeworks was extremely useful for this. I kept a lot of it the same as the homework, but getting it to work took a while because I had to dissect where the files were being referenced in the cmake files.
 
 Another challenge was understand a KD tree. It was hard since we have had lectures for all the other data structures, but I watched many, many videos and interactive KD tree constructions, and I feel like I understand KD trees really well.
 
@@ -75,6 +75,8 @@ A last challenge I had was creating less complex algorithms. Removal from a KD t
 A stretch goal I have is to upload a file (like a CSV) to the program and have it injest it. I was overconfident in my c++ abilities. I know I could do this in Python relatively quickly, but it took me 30 minutes to learn how to print nicely in c++, so I think this will be further down the road.
 
 My other stretch goal was to return multiple points. I was pretty excited once I completed the search function because I realized how simple it would be. It did turn out slightly harder because I had to duplicate the node and distance and use a lot of if statements to make sure it didn't break its own rules, but it was an simpler part of the project. I had to change my return type to vector, but it was pretty easy to separate them in the knn and second best functions.
+
+A surprise stretch goal I had was creating test files. Mostly I just copied the structure of the BST homework test file, but I had to hand build a KD tree and create my own tests, and from scratch for search. I was not expecting to create these, but it was so helpful to make sure my code was working as it should. I didn't think I would be capable of writing tests but it helped me really understand KD trees because I had to hand build it, and understand why my functions did what they did.
 
 # Resources
 Here are some of my favorite resources for exploring KD trees:
